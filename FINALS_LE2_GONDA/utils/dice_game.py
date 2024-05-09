@@ -63,7 +63,7 @@ class DiceGame:
         score_manager = Score()
         scores = score_manager.load_scores()
         if scores:
-            scores.sort(key=lambda x: int(x[1]), reverse=True)  # Sort by score value
+            scores.sort(key=lambda x: int(x[1]), reverse=True)  
             os.system('cls')
             print("\nTop 10 Scores:")
             for i, (username, score, rounds_won, date) in enumerate(scores[:10], 1):
