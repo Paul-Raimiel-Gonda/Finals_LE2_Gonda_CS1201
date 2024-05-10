@@ -7,11 +7,11 @@ class Score:
         pass
 
     def load_scores(self):
-        score_file_path = os.path.join('data', 'user_scores.txt')
+        score_file_path = os.path.join('data', 'user_scores.txt')    #Check if file path if file exists
         if os.path.exists(score_file_path):
             with open(score_file_path, 'r') as file:
                 scores = file.readlines()
-                scores = [score.strip().split(', ') for score in scores]
+                scores = [score.strip().split(', ') for score in scores]    
                 return scores
         else:
             print("No scores recorded yet.")
