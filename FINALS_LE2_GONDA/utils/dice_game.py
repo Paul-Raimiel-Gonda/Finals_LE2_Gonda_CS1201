@@ -15,13 +15,13 @@ class DiceGame:
     def play_game(self, user):
         total_score = 0
         total_rounds_won = 0
-        total_stages_won = 0
+        current_stage = 1 
 
-        for stage in range(self.total_stages):
+        while True:  
             stage_score = 0
             stage_rounds_won = 0
-
-            print(f"\nStage {stage + 1}\n")
+            os.system('cls')
+            print(f"\nStage {current_stage}\n")
 
             for _ in range(self.total_rounds):
                 user_number = random.randint(1, 6)
@@ -45,30 +45,29 @@ class DiceGame:
             total_score += stage_score
             total_rounds_won += stage_rounds_won
 
-            print(f"Stage {stage + 1} Score: {stage_score}")
+            print(f"Stage Score: {stage_score}")
             print(f"Total Score: {total_score}")
 
-            if stage < self.total_stages - 1:
-                if total_rounds_won == 0:
-                    print("Game over. You didn't win any stages.")
-                    break
-                choice = input("Do you want to proceed to the next stage? (1 for yes, 0 for no): ")
-                while choice not in ('1', '0'):
-                    choice = input("Invalid choice. Do you want to proceed to the next stage? (1 for yes, 0 for no): ")
+            if stage_rounds_won == 0:
+                print("Game over. You didn't win any stages.")
+                break
 
-                if choice == '0':
-                    break
+            if total_rounds_won == self.total_rounds:  
+                total_score += 3  
+                print("Congratulations! You won all rounds in this stage and gained 3 additional points!")
+                print(f"Total Score: {total_score}")
 
-            if total_rounds_won == self.total_rounds:
-                total_stages_won += 1
-                total_score += 3
-                print("Congratulations! You gained an additional 3 points for winning the stage.")
+            choice = input("Do you want to proceed to the next stage? (1 for yes, 0 for no): ")
+            while choice not in ('1', '0'):
+                choice = input("Invalid choice. Do you want to proceed to the next stage? (1 for yes, 0 for no): ")
 
-        if total_stages_won == 0:
-            print("Game over. You didn't win any stages.")
-        else:
-            print(f"\nTotal Points Earned: {total_score}")
-            print(f"Number of Rounds Won: {total_rounds_won}")
+            if choice == '0':
+                break
+
+            current_stage += 1 
+
+        print(f"\nTotal Points Earned: {total_score}")
+        print(f"Number of Rounds Won: {total_rounds_won}")
 
         score_manager = Score()
         score_manager.save_scores(user.username, total_score, total_rounds_won, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
@@ -106,6 +105,7 @@ class DiceGame:
         main.main()
 
     def game_menu(self, user):
+        os.system('cls')
         while True:
             print("\nWELCOME TO DICE GAME\n")
             print("1. Play Game")
