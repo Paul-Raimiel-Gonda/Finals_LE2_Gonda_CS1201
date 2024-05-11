@@ -114,11 +114,18 @@ class DiceGame:
     def game_menu(self, user):
         os.system('cls')
         while True:
-            print("\nWELCOME TO DICE GAME\n")
-            print("1. Play Game")
-            print("2. Show Top Scores")
-            print("3. Show Your Scores")
-            print("4. Logout")
+            print("""\n
+       _____                               _____                                 
+    __|__   |__  ____  ______  ______   __|___  |__  ____    ____    __  ______  
+   |     \     ||    ||   ___||   ___| |   ___|    ||    \  |    \  /  ||   ___| 
+   |      \    ||    ||   |__ |   ___| |   |  |    ||     \ |     \/   ||   ___| 
+   |______/  __||____||______||______| |______|  __||__|\__\|__/\__/|__||______| 
+      |_____|                             |_____|                                
+                                                                                 \n""")
+            print("\t\t\t1. Play Game")
+            print("\t\t\t2. Show Top Scores")
+            print("\t\t\t3. Show Your Scores")
+            print("\t\t\t4. Logout")
 
             choice = input("Enter your choice: ")
 

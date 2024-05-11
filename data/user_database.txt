@@ -2,3 +2,4 @@ Raimiel,gonda123,0
 John Doe,superman123,0
 Naruto,Shippuden,0
 new user,password123,0
+batman,darkknight,0

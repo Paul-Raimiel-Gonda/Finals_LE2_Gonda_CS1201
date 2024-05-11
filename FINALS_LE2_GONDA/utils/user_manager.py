@@ -16,6 +16,7 @@ class UserManager:
         if (user.username, user.password) in user_list:  #CHECK IF USER ALREADY EXISTS
             print("Username already exists")
             return
+        print("User successfully registered")
         user.save_user()    #PROCEED TO SAVE USER at user.py
         self.users[user.username] = user
 
