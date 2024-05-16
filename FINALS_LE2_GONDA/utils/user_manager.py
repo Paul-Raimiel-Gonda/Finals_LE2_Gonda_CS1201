@@ -18,7 +18,7 @@ class UserManager:
             return
         print("User successfully registered")
         user.save_user()    #PROCEED TO SAVE USER at user.py
-        self.users[user.username] = user
+
 
 #CHECK EXISTING USER DATA 
     def login(self, user):
